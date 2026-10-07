@@ -1,7 +1,7 @@
 {
   "question": "Does an eight-seed pilot plan deliver nominal 80% detection for neural-network PPO on fresh training seeds?",
   "pilot_seeds_per_arm": 8,
-  "repetitions_per_comparison": 40,
+  "repetitions_per_comparison": 50,
   "target_power": 0.8,
   "alpha": 0.05,
   "maximum_executable_seeds_per_arm": 512,
@@ -10,7 +10,7 @@
   "batch_size": 64,
   "planning": "Existing observed-gap noncentral-t planner with approximate fixed Welch degrees of freedom; smallest equal count per arm; zero effect/variance and counts above 512 remain visible but are not executed.",
   "confirmation": "Independent two-sided Welch test at p < 0.05, report direction reversals and same-variant controls separately; marginal detection, not simultaneous discoveries.",
-  "selection": "Four different-variant comparisons plus one same-variant control per task. Repeat count is selected from 30,40,50 using cloud throughput and remaining budget before statistical pilots, never from outcome scores.",
+  "selection": "Four different-variant comparisons plus one same-variant control per task. Fifty repeats are the largest candidate among 30,40,50 fitting a 1.5x throughput-based worst-case confirmation estimate plus ten compilation costs within the remaining allocation; selection uses cloud durations only, never scores.",
   "tasks": ["CartPole-v1", "Acrobot-v1"],
   "task_overrides": {
     "CartPole-v1": {"total_steps": 32768},

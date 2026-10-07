@@ -1,0 +1,25 @@
+# Prospective neural PPO calibration
+
+I repeat the pilot-to-fresh-seed question with a neural PPO implementation, rather than infer neural-network results from affine policy search. I adapt the MIT [Control Clock JAX PPO](https://github.com/mottopanikeiku/control-clock/blob/b090dad8a3b53f937782676c6033ba3557cedfa1/control_clock/jax_ppo.py), inspired by Apache-2.0 PureJaxRL. The fixed design is [neural_design.json](../configs/neural_design.json).
+
+## Comparisons and experimental units
+
+On each of gymnax CartPole-v1 and Acrobot-v1, I compare a base PPO with a faster learning rate, a slower learning rate, fewer update epochs and no entropy coefficient. A base-versus-base comparison is a separate null control. Actor and critic each have two tanh hidden layers of width 32. There is no best-checkpoint selection or qualification stopping: every seed trains a fixed environment-transition count and is evaluated once. Counts differ by task but not across variants on the same task.
+
+The root training seed is the independent unit. A compiled `vmap` keeps each root's parameters, Adam state, rollout randomness, advantage normalization and gradient clipping separate. Each policy score is the mean of sixteen complete deterministic-argmax episodes on a fixed task-specific reset list. That list is common across variants, pilots and confirmations; all inference is conditional on it. The episodes do not become sixteen training replicates. Gymnax automatically resets environments after done, but a permanent evaluation mask excludes rewards from subsequent episodes. Episodes end at termination or the 500-step limit. PPO does not bootstrap past a done flag, including time-limit completion.
+
+## Planning and confirmation
+
+Each comparison repetition gets eight independent pilot seeds per arm. I reuse the original observed-gap noncentral-t planner: plug in the pilot mean gap and unbiased variances, then find the smallest equal count with modeled two-sided 80% power at alpha 0.05. Welch degrees of freedom are held fixed at those variances. This is an approximation to the actual sample-based Welch test, and the pilot effect, pilot variance and Gaussian model can all be wrong.
+
+I select the number of repetitions from 30, 40 or 50 using only cloud throughput and the available allocation before statistical pilots, not their outcome scores. All pairs are specified before collection. Counts above 512 per arm, zero effects and zero total pilot variances stay in the plan as ineligible. I neither discard inconvenient completed outcomes nor silently reduce a requested count while advertising an 80% plan.
+
+I commit and push the complete comparison/repetition design, seed ranges, raw pilots and derived count plan before any confirmation seed runs. The runner requires the exact plan commit, unchanged source/design/count files, and fresh reserved seed ranges. Every executable plan receives exactly its requested fresh count; no pilot score enters the confirmation test. Duplicate padding only keeps the execution shape stable and is discarded, never counted as independent evidence.
+
+I report independent two-sided Welch detections (`p < 0.05`) for every executable different-variant cell, direction reversals, eligibility, raw seed counts, per-task/per-comparison frequencies and descriptive Wilson intervals. Null controls are separate. There is no multiplicity correction because the outcome is marginal detection frequency, not a list of simultaneously discovered algorithm improvements. Different variants are not known true alternatives; the pooled rate is not power at a known population gap.
+
+## What the comparison can and cannot say
+
+The neural and affine tables are separate experiments. Optimizers, horizons, evaluation reset handling, numerical precision and cohort composition differ, so a difference between their detection rates is not a causal effect of using neural policies. The new result removes the affine-only limitation, but two classic-control tasks are still not a general deep-RL benchmark.
+
+Raw compressed JSONL retains each root seed, full configuration, all sixteen evaluation returns, fixed reset list, phase and comparison coordinates. Environment files record GPU/software, requested CPU/memory, compilation-inclusive batch durations and plan hashes. Cost is a conservative cloud app-wall-time estimate, not an audited invoice. I make no laptop timing claims.
