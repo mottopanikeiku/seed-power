@@ -130,8 +130,8 @@ def main():
     outcomes = confirmation_outcomes(design, plans, records)
     destination = Path(args.output)
     destination.mkdir(parents=True, exist_ok=True)
-    with (destination / "outcomes.csv").open("w") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(outcomes[0]))
+    with (destination / "outcomes.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(outcomes[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(outcomes)
     result = summarize(design, plans, outcomes, records)
