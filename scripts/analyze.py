@@ -14,6 +14,15 @@ import numpy as np
 from seed_power.experiment import build_plans, run_specs
 from seed_power.stats import welch_test, wilson_interval
 
+OUTCOME_FIELDS = [
+    "task", "comparison_index", "repetition", "a", "b", "null_control",
+    "pilot_mean_a", "pilot_mean_b", "pilot_variance_a", "pilot_variance_b",
+    "pilot_effect_a_minus_b", "required_seeds_per_arm", "status", "modeled_power",
+    "confirmation_mean_a", "confirmation_mean_b", "confirmation_variance_a",
+    "confirmation_variance_b", "confirmation_effect_a_minus_b", "pvalue", "degeneracy",
+    "detected", "opposite_direction",
+]
+
 
 def load_records(path):
     return [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
@@ -131,7 +140,7 @@ def main():
     destination = Path(args.output)
     destination.mkdir(parents=True, exist_ok=True)
     with (destination / "outcomes.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(outcomes[0]), lineterminator="\n")
+        writer = csv.DictWriter(stream, fieldnames=OUTCOME_FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(outcomes)
     result = summarize(design, plans, outcomes, records)
