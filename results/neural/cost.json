@@ -1,0 +1,46 @@
+{
+  "currency": "USD",
+  "method": "Conservative compute estimate from each cloud client's wall time, reserved GPU/CPU/memory list prices, and a 10% margin. Not an audited invoice.",
+  "pricing_url": "https://modal.com/pricing",
+  "prices_usd_per_hour": {
+    "L4": 0.7992,
+    "cpu_core": 0.047160,
+    "memory_gib": 0.007992
+  },
+  "requested_resources_per_container": {
+    "cpu_cores": 2,
+    "memory_gib": 8,
+    "maximum_containers": 1
+  },
+  "includes": [
+    "Development throughput collection and image setup",
+    "Statistical pilots",
+    "Both pre-collection transport failures",
+    "The confirmation deadline interruption and its completed batches",
+    "Failed and successful CPU cache migration",
+    "The resumed complete confirmation export"
+  ],
+  "excludes": [
+    "Original affine experiment, reported separately in results/cost.json",
+    "Recurring storage for the retained result-only Volume",
+    "Local analysis and GitHub Actions"
+  ],
+  "runs": [
+    {"id": "seed-power-1791398135530", "phase": "development", "gpu": "L4", "wall_minutes_rounded": 3.14, "estimated_usd": 0.0552, "outcome": "complete"},
+    {"id": "seed-power-1791398431039", "phase": "pilot", "gpu": "L4", "wall_minutes_rounded": 1.25, "estimated_usd": 0.0220, "outcome": "client transport failure before returned records"},
+    {"id": "seed-power-1791399080563", "phase": "pilot", "gpu": "L4", "wall_minutes_rounded": 3.52, "estimated_usd": 0.0617, "outcome": "complete"},
+    {"id": "seed-power-1791399468527", "phase": "confirmation", "gpu": "L4", "wall_minutes_rounded": 1.26, "estimated_usd": 0.0221, "outcome": "client transport failure before returned records"},
+    {"id": "seed-power-1791400639841", "phase": "confirmation", "gpu": "L4", "wall_minutes_rounded": 25.19, "estimated_usd": 0.4422, "outcome": "deadline interruption; 434 completed batches retained"},
+    {"id": "seed-power-1791402976325", "phase": "cache migration", "gpu": "none", "wall_minutes_rounded": 7.01, "estimated_usd": 0.0203, "outcome": "module import failure; client stopped without migrated data"},
+    {"id": "seed-power-1791403524230", "phase": "cache migration", "gpu": "none", "wall_minutes_rounded": 2.43, "estimated_usd": 0.0071, "outcome": "434 batches and 27,690 roots verified and migrated"},
+    {"id": "seed-power-1791403689869", "phase": "confirmation", "gpu": "L4", "wall_minutes_rounded": 31.90, "estimated_usd": 0.5599, "outcome": "434 saved batches exported; 597 missing batches completed"}
+  ],
+  "estimated_compute_total_usd": 1.1905,
+  "rounded_up_compute_total_usd": 1.20,
+  "notes": [
+    "Per-run amounts come from elapsed times before their displayed minute rounding; summing displayed durations can differ slightly.",
+    "The repetition-selection forecast used training throughput before per-batch Volume persistence was added. It is not a measurement or bound on total persisted export time.",
+    "Volume persistence dominated the confirmation wall time. The interrupted and resumed sessions form one complete, unique-root dataset, not additional independent repeats.",
+    "No pretrained weights or model checkpoints were downloaded or retained. The Volume contains compressed result batches only."
+  ]
+}

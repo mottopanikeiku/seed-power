@@ -40,7 +40,7 @@ def make_overview(legacy, neural):
     fig, axes = plt.subplots(1, len(tasks) + 1, figsize=(4 * (len(tasks) + 1), 4.5),
                              sharey=True, constrained_layout=True)
     axes = np.atleast_1d(axes)
-    labels = ["Linear search", "Neural PPO"]
+    labels = ["Affine ARS/CEM", "Neural PPO"]
     colors = ["#8b8f97", "#286a9b"]
     plot_groups(axes[0], [legacy["nonnull"], neural["nonnull"]], labels, colors)
     axes[0].set_title("All executable different-variant plans")
@@ -52,7 +52,7 @@ def make_overview(legacy, neural):
                    label=f'{neural["target_power"]:.0%} pilot planning target')
     axes[0].set_ylabel("Fresh-root-seed detection frequency")
     axes[-1].legend(loc="lower right", fontsize=8)
-    fig.suptitle("Pilot-derived budgets: linear search and neural PPO\n"
+    fig.suptitle("Pilot-derived budgets: affine search and neural PPO\n"
                  "Descriptive Wilson 95% intervals; PPO conditional on fixed evaluation resets")
     return fig
 
@@ -65,7 +65,7 @@ def make_comparisons(neural):
     for ax, task in zip(axes, tasks, strict=True):
         groups = [group for group in neural["per_comparison"] if group["task"] == task]
         labels = [f'{group["a"]}\nvs {group["b"]}'
-                  + ("\n(same-variant control)" if group["null_control"] else "")
+                  + ("\n(null control)" if group["null_control"] else "")
                   + f'\n{group["plans"]}/{group["attempted_plans"]} executable'
                   for group in groups]
         plot_groups(ax, groups, labels,
@@ -99,6 +99,7 @@ def main():
     for filename, fig in [("neural_vs_linear.svg", make_overview(legacy, neural)),
                           ("neural_comparisons.svg", make_comparisons(neural))]:
         fig.savefig(destination / filename)
+        fig.savefig((destination / filename).with_suffix(".png"), dpi=160)
         plt.close(fig)
 
 

@@ -257,3 +257,52 @@ def test_figures_take_rates_from_summaries_not_a_hardcoded_legacy_result():
     assert len(fig.axes) == len(design["tasks"])
     assert all(any("No executable" in text.get_text() for text in ax.texts) for ax in fig.axes)
     plt.close(fig)
+
+
+def test_committed_neural_roots_reproduce_counts_outcomes_and_summary():
+    import csv
+    import io
+
+    root = analysis.ROOT
+    design_path = root / "configs/neural_design.json"
+    plan_path = root / "results/neural/pilot_plan.json"
+    pilot_path = root / "results/neural/pilot/runs.jsonl.gz"
+    fresh_path = root / "results/neural/confirmation/runs.jsonl.gz"
+    design = json.loads(design_path.read_text())
+    plans = json.loads(plan_path.read_text())
+    pilot = analysis.load_records(pilot_path)
+    fresh = analysis.load_records(fresh_path)
+    analysis.validate_records(design, "pilot", pilot)
+    rebuilt = build_plans(design, pilot)
+    rebuilt["pilot_sha256"] = hashlib.sha256(pilot_path.read_bytes()).hexdigest()
+    rebuilt["design_sha256"] = hashlib.sha256(design_path.read_bytes()).hexdigest()
+    assert rebuilt == plans
+    plan_commit = analysis.plan_provenance(design_path, plan_path, fresh_path)
+    outcomes = analysis.confirmation_outcomes(design, plans, fresh)
+    result = analysis.summarize(design, plans, outcomes, fresh, plan_commit)
+    assert result == json.loads((root / "results/neural/summary.json").read_text())
+    assert len(pilot) == 8000 and len(fresh) == 65744 and len(outcomes) == 381
+    assert not {record["seed"] for record in pilot} & {record["seed"] for record in fresh}
+    legacy_seeds = set()
+    for phase in ("pilot", "confirmation"):
+        with (root / f"results/{phase}/runs.jsonl").open() as stream:
+            legacy_seeds.update(json.loads(line)["seed"] for line in stream if line.strip())
+    assert not legacy_seeds & {record["seed"] for record in pilot + fresh}
+    for record in pilot + fresh:
+        bounds = (0, 500) if record["task"] == "CartPole-v1" else (-500, 0)
+        assert bounds[0] <= record["score"] <= bounds[1]
+    stream = io.StringIO(newline="")
+    writer = csv.DictWriter(stream, fieldnames=analysis.OUTCOME_FIELDS, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(outcomes)
+    assert stream.getvalue() == (root / "results/neural/outcomes.csv").read_text()
+    environment = json.loads((fresh_path.parent / "environment.json").read_text())
+    assert sum(batch["useful_seeds"] for batch in environment["batches"]) == len(fresh)
+    assert {batch["index"] for batch in environment["batches"]} == set(range(1031))
+    assert environment["training_identity"]["source_tree"] == (
+        "23cd8f7b5b1bd5df4405f3b2e5224bb2d2ce51e3"
+    )
+    assert {batch["producer_code_commit"] for batch in environment["batches"]} == {
+        "277c08f1203c0b1468037edccfe363136b717e6e",
+        "37e9e4646acacea702034f8ff90d0aafad40a67c",
+    }

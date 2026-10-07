@@ -9,6 +9,8 @@ uv sync --locked --python 3.12
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python scripts/public_analysis.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python scripts/analyze.py confirmation
 uv run python scripts/figures.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python scripts/neural_analyze.py confirmation
+uv run python scripts/neural_figures.py
 uv run ruff check .
 uv run python -m pytest -q
 ```
@@ -29,6 +31,25 @@ uv run python scripts/analyze.py confirmation --confirmation results/replication
 ```
 
 A Modal account is required only for training. Each container requests one CPU core and 1 GiB RAM; numerical libraries use one thread, with at most eight concurrent containers. The exact cloud environments and per-batch execution durations are in `results/*/environment.json`. Modal's sandbox reports the CPU model as unknown. I report cloud costs conservatively, not laptop training times or a throughput ranking.
+
+## Export or reproduce neural PPO confirmation
+
+I pushed the complete neural count plan at
+[`260bebb4b1ab2d827ef06371b3681a0293f2b999`](https://github.com/mottopanikeiku/seed-power/commit/260bebb4b1ab2d827ef06371b3681a0293f2b999)
+before any confirmation results. Transport commit `37e9e46` adds source-versioned, durable, resumable batches without changing the training code, design or count plan. Use a Python 3.12 client:
+
+```sh
+git switch --detach 37e9e46
+uv sync --locked --python 3.12
+SEED_POWER_TIMEOUT_SECONDS=3600 uv run --python 3.12 modal run neural_modal.py --stage confirmation --output results/replication/neural --plan-commit 260bebb4b1ab2d827ef06371b3681a0293f2b999
+uv run python scripts/neural_analyze.py confirmation --confirmation results/replication/neural/runs.jsonl --output results/replication/neural
+uv run python scripts/neural_figures.py --neural results/replication/neural/summary.json --output figures/replication
+```
+
+Each GPU container requests one L4, two CPU cores and 8 GiB RAM; the concurrency limit is one. Roots are vmapped in batches of 64. Every complete batch is committed to the dedicated `seed-power-day-results` Volume before being returned. Existing batches for the same design, count plan, committed training-source tree and immutable runtime image are exported rather than retrained. Five sequential fresh-client attempts share the overall deadline, and rerunning resumes only missing batches. An empty cache trains the same pseudorandom roots again; that is reproducibility, not additional independent evidence. No model weights are downloaded. Per-batch persistence adds substantial cloud wall time; the throughput forecast measures training only, not total export time.
+
+The CPU-only neural correctness tests are optional locally (`uv sync --locked --python 3.12 --extra neural`); CI installs that extra and exercises them. [Neural protocol and limitations](NEURAL_PROTOCOL.md).
+
 
 ## Run a new pilot and confirmation
 

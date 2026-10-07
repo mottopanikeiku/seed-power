@@ -1,0 +1,353 @@
+{
+  "target_power": 0.8,
+  "interpretation": "Marginal detection frequency across executable fixed PPO variant comparisons, conditional on the committed task-specific evaluation reset sets. Different variants are not known alternatives. Evaluation episodes are not independent training replicates; this is not true power at a known effect or a general RL population.",
+  "attempted_nonnull_plans": 400,
+  "nonnull_status_counts": {
+    "planned": 307,
+    "over_budget": 93
+  },
+  "eligible_nonnull_fraction": 0.7675,
+  "nonnull": {
+    "plans": 307,
+    "detections": 139,
+    "detection_rate": 0.4527687296416938,
+    "wilson_95_low": 0.39801404506332716,
+    "wilson_95_high": 0.5086908066317345,
+    "opposite_pilot_direction_detections": 20,
+    "seeds_per_arm_median": 37.0,
+    "seeds_per_arm_q25": 4.0,
+    "seeds_per_arm_q75": 120.5
+  },
+  "null_controls": {
+    "plans": 74,
+    "detections": 7,
+    "detection_rate": 0.0945945945945946,
+    "wilson_95_low": 0.0465799379842249,
+    "wilson_95_high": 0.18262258585068275,
+    "opposite_pilot_direction_detections": 3,
+    "seeds_per_arm_median": 61.0,
+    "seeds_per_arm_q25": 27.0,
+    "seeds_per_arm_q75": 116.25
+  },
+  "training_seeds_confirmation": 65744,
+  "training_seeds_pilot": 8000,
+  "per_task": {
+    "CartPole-v1": {
+      "plans": 175,
+      "detections": 109,
+      "detection_rate": 0.6228571428571429,
+      "wilson_95_low": 0.5491360438821392,
+      "wilson_95_high": 0.6913003755227801,
+      "opposite_pilot_direction_detections": 11,
+      "seeds_per_arm_median": 4.0,
+      "seeds_per_arm_q25": 3.0,
+      "seeds_per_arm_q75": 48.0
+    },
+    "Acrobot-v1": {
+      "plans": 132,
+      "detections": 30,
+      "detection_rate": 0.22727272727272727,
+      "wilson_95_low": 0.1640920693359151,
+      "wilson_95_high": 0.30587828709968956,
+      "opposite_pilot_direction_detections": 9,
+      "seeds_per_arm_median": 81.0,
+      "seeds_per_arm_q25": 38.0,
+      "seeds_per_arm_q75": 183.5
+    }
+  },
+  "per_comparison": [
+    {
+      "task": "Acrobot-v1",
+      "a": "base",
+      "b": "base",
+      "null_control": true,
+      "plans": 38,
+      "detections": 2,
+      "detection_rate": 0.05263157894736842,
+      "wilson_95_low": 0.014554208147292413,
+      "wilson_95_high": 0.17285462131770377,
+      "opposite_pilot_direction_detections": 0,
+      "seeds_per_arm_median": 73.0,
+      "seeds_per_arm_q25": 27.0,
+      "seeds_per_arm_q75": 108.75,
+      "welch_conventions": {
+        "ordinary_welch": 38
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "over_budget": 12,
+        "planned": 38
+      }
+    },
+    {
+      "task": "Acrobot-v1",
+      "a": "base",
+      "b": "fewer_epochs",
+      "null_control": false,
+      "plans": 32,
+      "detections": 14,
+      "detection_rate": 0.4375,
+      "wilson_95_low": 0.2816533111504036,
+      "wilson_95_high": 0.6067440886314801,
+      "opposite_pilot_direction_detections": 6,
+      "seeds_per_arm_median": 98.5,
+      "seeds_per_arm_q25": 41.0,
+      "seeds_per_arm_q75": 182.5,
+      "welch_conventions": {
+        "ordinary_welch": 32
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 32,
+        "over_budget": 18
+      }
+    },
+    {
+      "task": "Acrobot-v1",
+      "a": "base",
+      "b": "lr_fast",
+      "null_control": false,
+      "plans": 39,
+      "detections": 14,
+      "detection_rate": 0.358974358974359,
+      "wilson_95_low": 0.22742085458992867,
+      "wilson_95_high": 0.5158185144045146,
+      "opposite_pilot_direction_detections": 2,
+      "seeds_per_arm_median": 64.0,
+      "seeds_per_arm_q25": 30.5,
+      "seeds_per_arm_q75": 121.5,
+      "welch_conventions": {
+        "ordinary_welch": 39
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 39,
+        "over_budget": 11
+      }
+    },
+    {
+      "task": "Acrobot-v1",
+      "a": "base",
+      "b": "lr_slow",
+      "null_control": false,
+      "plans": 34,
+      "detections": 1,
+      "detection_rate": 0.029411764705882353,
+      "wilson_95_low": 0.0052109062762689395,
+      "wilson_95_high": 0.1491557329268593,
+      "opposite_pilot_direction_detections": 1,
+      "seeds_per_arm_median": 62.5,
+      "seeds_per_arm_q25": 30.25,
+      "seeds_per_arm_q75": 197.5,
+      "welch_conventions": {
+        "ordinary_welch": 34
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 34,
+        "over_budget": 16
+      }
+    },
+    {
+      "task": "Acrobot-v1",
+      "a": "base",
+      "b": "no_entropy",
+      "null_control": false,
+      "plans": 27,
+      "detections": 1,
+      "detection_rate": 0.037037037037037035,
+      "wilson_95_low": 0.006568145980785103,
+      "wilson_95_high": 0.18283465933575843,
+      "opposite_pilot_direction_detections": 0,
+      "seeds_per_arm_median": 120.0,
+      "seeds_per_arm_q25": 64.5,
+      "seeds_per_arm_q75": 235.5,
+      "welch_conventions": {
+        "ordinary_welch": 27
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 27,
+        "over_budget": 23
+      }
+    },
+    {
+      "task": "CartPole-v1",
+      "a": "base",
+      "b": "base",
+      "null_control": true,
+      "plans": 36,
+      "detections": 5,
+      "detection_rate": 0.1388888888888889,
+      "wilson_95_low": 0.06081815009132838,
+      "wilson_95_high": 0.286595303893562,
+      "opposite_pilot_direction_detections": 3,
+      "seeds_per_arm_median": 49.0,
+      "seeds_per_arm_q25": 28.0,
+      "seeds_per_arm_q75": 127.25,
+      "welch_conventions": {
+        "ordinary_welch": 36
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 36,
+        "over_budget": 14
+      }
+    },
+    {
+      "task": "CartPole-v1",
+      "a": "base",
+      "b": "fewer_epochs",
+      "null_control": false,
+      "plans": 50,
+      "detections": 41,
+      "detection_rate": 0.82,
+      "wilson_95_low": 0.6920394632569922,
+      "wilson_95_high": 0.9022980732976582,
+      "opposite_pilot_direction_detections": 0,
+      "seeds_per_arm_median": 3.0,
+      "seeds_per_arm_q25": 3.0,
+      "seeds_per_arm_q75": 4.0,
+      "welch_conventions": {
+        "ordinary_welch": 50
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 50
+      }
+    },
+    {
+      "task": "CartPole-v1",
+      "a": "base",
+      "b": "lr_fast",
+      "null_control": false,
+      "plans": 40,
+      "detections": 20,
+      "detection_rate": 0.5,
+      "wilson_95_low": 0.35199526933465386,
+      "wilson_95_high": 0.6480047306653461,
+      "opposite_pilot_direction_detections": 10,
+      "seeds_per_arm_median": 48.0,
+      "seeds_per_arm_q25": 29.25,
+      "seeds_per_arm_q75": 126.5,
+      "welch_conventions": {
+        "ordinary_welch": 40
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 40,
+        "over_budget": 10
+      }
+    },
+    {
+      "task": "CartPole-v1",
+      "a": "base",
+      "b": "lr_slow",
+      "null_control": false,
+      "plans": 50,
+      "detections": 47,
+      "detection_rate": 0.94,
+      "wilson_95_low": 0.8378290831116182,
+      "wilson_95_high": 0.979385029651026,
+      "opposite_pilot_direction_detections": 0,
+      "seeds_per_arm_median": 3.0,
+      "seeds_per_arm_q25": 3.0,
+      "seeds_per_arm_q75": 3.0,
+      "welch_conventions": {
+        "ordinary_welch": 50
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 50
+      }
+    },
+    {
+      "task": "CartPole-v1",
+      "a": "base",
+      "b": "no_entropy",
+      "null_control": false,
+      "plans": 35,
+      "detections": 1,
+      "detection_rate": 0.02857142857142857,
+      "wilson_95_low": 0.005061491855444203,
+      "wilson_95_high": 0.14533087233613673,
+      "opposite_pilot_direction_detections": 1,
+      "seeds_per_arm_median": 89.0,
+      "seeds_per_arm_q25": 38.5,
+      "seeds_per_arm_q75": 183.0,
+      "welch_conventions": {
+        "ordinary_welch": 35
+      },
+      "attempted_plans": 50,
+      "status_counts": {
+        "planned": 35,
+        "over_budget": 15
+      }
+    }
+  ],
+  "alpha": 0.05,
+  "plan_commit": "260bebb4b1ab2d827ef06371b3681a0293f2b999",
+  "interval_interpretation": "Wilson 95% intervals are descriptive pooled summaries of heterogeneous fixed comparison detection rates, not confidence intervals for one shared power parameter.",
+  "evaluation_reset_seeds": {
+    "CartPole-v1": [
+      2000000000,
+      2000000001,
+      2000000002,
+      2000000003,
+      2000000004,
+      2000000005,
+      2000000006,
+      2000000007,
+      2000000008,
+      2000000009,
+      2000000010,
+      2000000011,
+      2000000012,
+      2000000013,
+      2000000014,
+      2000000015
+    ],
+    "Acrobot-v1": [
+      2000001000,
+      2000001001,
+      2000001002,
+      2000001003,
+      2000001004,
+      2000001005,
+      2000001006,
+      2000001007,
+      2000001008,
+      2000001009,
+      2000001010,
+      2000001011,
+      2000001012,
+      2000001013,
+      2000001014,
+      2000001015
+    ]
+  },
+  "training_transitions_confirmation": 3506110464,
+  "welch_conventions": {
+    "nonnull": {
+      "ordinary_welch": 307
+    },
+    "null_controls": {
+      "ordinary_welch": 74
+    },
+    "definitions": {
+      "identical_constants": "No estimable t distribution; declared p=1 convention.",
+      "distinct_constants": "No estimable t distribution; declared p=0 limiting convention."
+    }
+  },
+  "nonnull_ordinary_welch": {
+    "plans": 307,
+    "detections": 139,
+    "detection_rate": 0.4527687296416938,
+    "wilson_95_low": 0.39801404506332716,
+    "wilson_95_high": 0.5086908066317345,
+    "opposite_pilot_direction_detections": 20,
+    "seeds_per_arm_median": 37.0,
+    "seeds_per_arm_q25": 4.0,
+    "seeds_per_arm_q75": 120.5
+  }
+}
