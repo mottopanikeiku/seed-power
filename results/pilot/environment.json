@@ -1,0 +1,939 @@
+{
+  "stage": "pilot",
+  "code_commit": "b1eb5ba547646070da0cee892126982b5af66408",
+  "plan_commit": null,
+  "plan_sha256": null,
+  "design_sha256": "9960f10aa9a12c2893b6a3e0f77b0662f712a5acac1e200aaa3a6e476781e372",
+  "hardware": "Modal CPU, no GPU",
+  "cpu_cores_per_container": 1,
+  "memory_gib_per_container": 1,
+  "max_containers": 8,
+  "timeout_seconds": 300,
+  "numerical_threads": 1,
+  "batches": [
+    {
+      "seconds": 0.35105936999999976,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.29931614500000014,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.3583688329999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5535382199999996,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.4834339820000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5933240790000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.558735897,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.47589238000000034,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5702312420000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5671299729999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.4418900690000003,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5983791909999998,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.33690880099999987,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.0685875290000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.9245841460000004,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.694605578,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.074896559,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.0910545599999995,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.3474853389999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.1342998340000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.4884039109999998,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5813163259999996,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.35653863100000005,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.366021736,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5943298780000004,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5699426369999996,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5618684760000003,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.493539309,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.6229009369999998,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5894439519999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.3786371470000005,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.6577727210000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.6077302580000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.48884184300000033,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5741206720000003,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.5693015310000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.7346565510000005,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.1738352279999997,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.1539159260000007,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.9731809250000003,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.2433016500000003,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.3025394110000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.2706951139999996,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.2061509699999995,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.8566986679999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.856329425000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.2243357670000004,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.3209931819999996,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.5076310940000006,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.354003458,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.127133176,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.166186488,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.3932973329999996,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.8546390660000007,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.4073933529999998,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.0652025370000011,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.7310468300000004,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.4573194919999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.079496797,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.377218394,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 3.985924667999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.045094839000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.8808262640000013,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.3313424839999985,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.5355449730000004,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.5770935870000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.8808557399999994,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.3097653620000003,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.564126378000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.192061764,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.3305854549999996,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.2417670870000013,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.3365755650000004,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.8680151779999985,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.543846685,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.3675095830000004,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.156371441000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.5639833139999997,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.103162871000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.237373369000002,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.317304137000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 2.975628349000001,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 3.423048286,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 4.309502497,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    }
+  ]
+}

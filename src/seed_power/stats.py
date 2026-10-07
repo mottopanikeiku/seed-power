@@ -16,7 +16,8 @@ from numbers import Integral, Real
 
 import numpy as np
 from numpy.typing import ArrayLike
-from scipy.stats import nct, norm, t
+from scipy.integrate import quad
+from scipy.stats import chi2, nct, norm, t
 
 
 def _finite_real(value: float, name: str) -> float:
@@ -87,6 +88,19 @@ def _power(effect: float, variance_a: float, variance_b: float, n: int, alpha: f
     else:
         critical = t.isf(alpha / 2.0, df)
         power = nct.sf(critical, df, nc) + nct.cdf(-critical, df, nc)
+        if not math.isfinite(power):
+            # Some SciPy noncentral-t opposite tails return NaN at large nc.
+            # Integrate the same normal/chi-square representation, not a
+            # substituted distribution or a discarded rejection tail.
+            def conditional_rejection(quantile):
+                threshold = critical * math.sqrt(chi2.ppf(quantile, df) / df)
+                return norm.cdf(nc - threshold) + norm.cdf(-nc - threshold)
+
+            power, error = quad(
+                conditional_rejection, 0.0, 1.0, epsabs=1e-10, epsrel=1e-10, limit=200
+            )
+            if error > 1e-7:
+                raise FloatingPointError("noncentral-t integration did not converge")
     if not math.isfinite(power):
         raise FloatingPointError("SciPy could not evaluate planning power for these inputs")
     return min(1.0, max(0.0, float(power)))

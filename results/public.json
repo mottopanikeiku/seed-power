@@ -1,0 +1,252 @@
+{
+  "dataset": "control-clock-final",
+  "source_manifest": "data/public_sources.json",
+  "observed_count_claim_type": "observed_training_run",
+  "model_claim_type": "plugin_model",
+  "observed_records": 140,
+  "task_count": 2,
+  "tasks": [
+    "Acrobot-v1",
+    "CartPole-v1"
+  ],
+  "algorithm_count": 5,
+  "algorithms": [
+    "ars",
+    "cem",
+    "cleanrl",
+    "ppo-cpu",
+    "sb3-zoo"
+  ],
+  "cohorts": [
+    {
+      "task": "Acrobot-v1",
+      "algorithm": "ars",
+      "variant": "longer",
+      "observed_training_runs": 20
+    },
+    {
+      "task": "Acrobot-v1",
+      "algorithm": "cem",
+      "variant": "longer",
+      "observed_training_runs": 20
+    },
+    {
+      "task": "Acrobot-v1",
+      "algorithm": "cleanrl",
+      "variant": "default",
+      "observed_training_runs": 5
+    },
+    {
+      "task": "Acrobot-v1",
+      "algorithm": "ppo-cpu",
+      "variant": "default",
+      "observed_training_runs": 20
+    },
+    {
+      "task": "Acrobot-v1",
+      "algorithm": "sb3-zoo",
+      "variant": "default",
+      "observed_training_runs": 5
+    },
+    {
+      "task": "CartPole-v1",
+      "algorithm": "ars",
+      "variant": "default",
+      "observed_training_runs": 20
+    },
+    {
+      "task": "CartPole-v1",
+      "algorithm": "cem",
+      "variant": "default",
+      "observed_training_runs": 20
+    },
+    {
+      "task": "CartPole-v1",
+      "algorithm": "cleanrl",
+      "variant": "default",
+      "observed_training_runs": 5
+    },
+    {
+      "task": "CartPole-v1",
+      "algorithm": "ppo-cpu",
+      "variant": "zoo-shape",
+      "observed_training_runs": 20
+    },
+    {
+      "task": "CartPole-v1",
+      "algorithm": "sb3-zoo",
+      "variant": "default",
+      "observed_training_runs": 5
+    }
+  ],
+  "alpha": 0.05,
+  "target_plugin_power": 0.8,
+  "score_units": "undiscounted_episode_return_at_stopping",
+  "sample_variance_ddof": 1,
+  "power_model": "two-sided noncentral-t with fixed Welch-Satterthwaite df; observed gap and sample variances; actual unequal allocation",
+  "planning_model": "same approximation; smallest n >= 2; equal allocation",
+  "effect_definition": "d = mean gap / sqrt((variance_a + variance_b)/2); standardized-effect budgets retain each pair's variance ratio",
+  "all_pairs": {
+    "enumerated_pairs": 20,
+    "estimable_pairs": 20,
+    "non_estimable_pairs": 0,
+    "below_target_pairs": 19,
+    "fraction_below_target_plugin_model": 0.95
+  },
+  "per_task": {
+    "Acrobot-v1": {
+      "enumerated_pairs": 10,
+      "estimable_pairs": 10,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 10,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "CartPole-v1": {
+      "enumerated_pairs": 10,
+      "estimable_pairs": 10,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 9,
+      "fraction_below_target_plugin_model": 0.9
+    }
+  },
+  "per_algorithm_pair": {
+    "ars/cem": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "ars/cleanrl": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "ars/ppo-cpu": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "ars/sb3-zoo": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "cem/cleanrl": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "cem/ppo-cpu": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "cem/sb3-zoo": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "cleanrl/ppo-cpu": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    },
+    "cleanrl/sb3-zoo": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 1,
+      "fraction_below_target_plugin_model": 0.5
+    },
+    "ppo-cpu/sb3-zoo": {
+      "enumerated_pairs": 2,
+      "estimable_pairs": 2,
+      "non_estimable_pairs": 0,
+      "below_target_pairs": 2,
+      "fraction_below_target_plugin_model": 1.0
+    }
+  },
+  "plugin_power_quantiles": {
+    "min": 0.05002228635527316,
+    "q25": 0.131292229322941,
+    "median": 0.45635640158618207,
+    "q75": 0.6387089381274367,
+    "max": 0.8157763931715732
+  },
+  "standardized_effect_plans_equal_variance": [
+    {
+      "claim_type": "plugin_model",
+      "standardized_mean_effect": 0.2,
+      "variance_a": 1.0,
+      "variance_b": 1.0,
+      "alpha": 0.05,
+      "target": 0.8,
+      "seeds_per_arm": 394,
+      "total_training_runs": 788,
+      "power_at_n": 0.8005931284024354,
+      "power_at_n_minus_one": 0.7995942411619148
+    },
+    {
+      "claim_type": "plugin_model",
+      "standardized_mean_effect": 0.5,
+      "variance_a": 1.0,
+      "variance_b": 1.0,
+      "alpha": 0.05,
+      "target": 0.8,
+      "seeds_per_arm": 64,
+      "total_training_runs": 128,
+      "power_at_n": 0.8014595579287099,
+      "power_at_n_minus_one": 0.7951683381304625
+    },
+    {
+      "claim_type": "plugin_model",
+      "standardized_mean_effect": 0.8,
+      "variance_a": 1.0,
+      "variance_b": 1.0,
+      "alpha": 0.05,
+      "target": 0.8,
+      "seeds_per_arm": 26,
+      "total_training_runs": 52,
+      "power_at_n": 0.8074866151465275,
+      "power_at_n_minus_one": 0.7914512899851558
+    },
+    {
+      "claim_type": "plugin_model",
+      "standardized_mean_effect": 1.0,
+      "variance_a": 1.0,
+      "variance_b": 1.0,
+      "alpha": 0.05,
+      "target": 0.8,
+      "seeds_per_arm": 17,
+      "total_training_runs": 34,
+      "power_at_n": 0.8070367151472201,
+      "power_at_n_minus_one": 0.7813977924664224
+    }
+  ],
+  "caveats": [
+    "Observed-gap calculations reuse the data to estimate both gap and variance; they are not prospective power or evidence of significance.",
+    "This is the complete final cohort of one owner-authored public GitHub benchmark, not a representative survey or a fraction of all published RL comparisons.",
+    "Scores are undiscounted episode-return means at each run's stopping policy, not scores at equal training steps. Repeated evaluation controls stopping, including at initialization.",
+    "The same 100 evaluation episode seeds are reused across checkpoints, runs and algorithms. Episodes are not training seeds; inference is conditional on that fixed evaluation set.",
+    "The release describes independent training runs; matching seed labels do not justify a paired test. Independence of every RNG/hardware source cannot be established from scores.",
+    "Gaussian seed-level scores and fixed plug-in variances are assumptions, not verified facts. Ceiling effects and qualification thresholds can distort these distributions.",
+    "All pairs sharing algorithms are dependent; their descriptive below-threshold fraction has no binomial confidence interval. No familywise significance claims are made.",
+    "A zero total sample variance is reported as non-estimable, not replaced by a tiny SD."
+  ],
+  "input_sha256": "0bd4b473920f6f1a7e5d876cab3b286814f30864c84ef964aecc090e38eb3874"
+}
