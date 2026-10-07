@@ -1,0 +1,21 @@
+{
+  "currency": "USD",
+  "hardware": "Modal CPU containers, no GPU",
+  "cores_per_container": 1,
+  "memory_gib_per_container": 1,
+  "maximum_containers": 8,
+  "cpu_core_hour_usd": 0.047160,
+  "memory_gib_hour_usd": 0.007992,
+  "safety_multiplier": 1.1,
+  "method": "Conservative app-wall-time estimate assuming all eight containers request one core and one GiB throughout; includes a failed initialization. Rounded run costs sum to the reported total. This is not an audited invoice.",
+  "runs": [
+    {"stage": "initialization_attempt", "wall_minutes": 0.16, "estimated_upper_usd": 0.0013, "completed": false, "failure": "Package was not available to the global Modal executable; rerun from the locked environment."},
+    {"stage": "development", "wall_minutes": 0.46, "estimated_upper_usd": 0.0037, "completed": true, "training_seeds": 128},
+    {"stage": "pilot", "wall_minutes": 0.54, "estimated_upper_usd": 0.0044, "completed": true, "training_seeds": 2688},
+    {"stage": "confirmation", "wall_minutes": 1.57, "estimated_upper_usd": 0.0127, "completed": true, "training_seeds": 11440}
+  ],
+  "estimated_upper_usd": 0.0221,
+  "rounded_up_upper_usd": 0.03,
+  "original_allocation_usd": 2.0,
+  "source": "Cloud application wall times and predeclared CPU/memory requests, recorded 2026-10-07"
+}
