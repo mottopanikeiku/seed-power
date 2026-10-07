@@ -10,7 +10,7 @@ import subprocess
 
 import modal
 
-TIMEOUT = int(os.environ.get("SEED_POWER_TIMEOUT_SECONDS", "600"))
+TIMEOUT = int(os.environ.get("SEED_POWER_TIMEOUT_SECONDS", "300"))
 CONTAINERS = int(os.environ.get("SEED_POWER_CONTAINERS", "8"))
 app = modal.App("seed-power")
 image = (
