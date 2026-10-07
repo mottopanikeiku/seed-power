@@ -28,3 +28,16 @@ I enumerate all ten unordered implementation pairs per task, with actual unequal
 uv run python scripts/import_public.py
 uv run python scripts/public_analysis.py
 ```
+
+## Neural PPO extension
+
+I extend the same prospective question to small neural policies. I adapt
+[Control Clock's JAX PPO](https://github.com/mottopanikeiku/control-clock/blob/b090dad8a3b53f937782676c6033ba3557cedfa1/control_clock/jax_ppo.py)
+(MIT), which follows [PureJaxRL](https://github.com/luchris429/purejaxrl)'s
+JAX/vmap/scan design (Apache-2.0; retained notice in `third_party/`).
+I replace qualification stopping with a fixed transition budget and evaluate
+once in Gymnax on a common fixed reset set. Optimizers and training randomness
+remain independent across root training seeds. This removes the affine-only
+limitation, not the small-task limitation, and introduces no new power formula.
+The historical and neural cohorts are separate experiments, not an algorithm
+ranking or a controlled causal comparison of policy classes.

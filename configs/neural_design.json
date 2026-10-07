@@ -1,0 +1,43 @@
+{
+  "question": "Does an eight-seed pilot plan deliver nominal 80% detection for neural-network PPO on fresh training seeds?",
+  "pilot_seeds_per_arm": 8,
+  "repetitions_per_comparison": 40,
+  "target_power": 0.8,
+  "alpha": 0.05,
+  "maximum_executable_seeds_per_arm": 512,
+  "evaluation_episodes_per_training_seed": 16,
+  "population": 32,
+  "batch_size": 64,
+  "planning": "Existing observed-gap noncentral-t planner with approximate fixed Welch degrees of freedom; smallest equal count per arm; zero effect/variance and counts above 512 remain visible but are not executed.",
+  "confirmation": "Independent two-sided Welch test at p < 0.05, report direction reversals and same-variant controls separately; marginal detection, not simultaneous discoveries.",
+  "selection": "Four different-variant comparisons plus one same-variant control per task. Repeat count is selected from 30,40,50 using cloud throughput and remaining budget before statistical pilots, never from outcome scores.",
+  "tasks": ["CartPole-v1", "Acrobot-v1"],
+  "task_overrides": {
+    "CartPole-v1": {"total_steps": 32768},
+    "Acrobot-v1": {"total_steps": 65536}
+  },
+  "variants": {
+    "base": {"method": "ppo", "num_envs": 16, "num_steps": 64, "minibatches": 4, "epochs": 4, "learning_rate": 0.0003, "entropy_coefficient": 0.01, "hidden_size": 32, "gamma": 0.99, "gae_lambda": 0.95, "clip_epsilon": 0.2, "value_coefficient": 0.5, "max_gradient_norm": 0.5},
+    "lr_fast": {"method": "ppo", "num_envs": 16, "num_steps": 64, "minibatches": 4, "epochs": 4, "learning_rate": 0.001, "entropy_coefficient": 0.01, "hidden_size": 32, "gamma": 0.99, "gae_lambda": 0.95, "clip_epsilon": 0.2, "value_coefficient": 0.5, "max_gradient_norm": 0.5},
+    "lr_slow": {"method": "ppo", "num_envs": 16, "num_steps": 64, "minibatches": 4, "epochs": 4, "learning_rate": 0.0001, "entropy_coefficient": 0.01, "hidden_size": 32, "gamma": 0.99, "gae_lambda": 0.95, "clip_epsilon": 0.2, "value_coefficient": 0.5, "max_gradient_norm": 0.5},
+    "fewer_epochs": {"method": "ppo", "num_envs": 16, "num_steps": 64, "minibatches": 4, "epochs": 2, "learning_rate": 0.0003, "entropy_coefficient": 0.01, "hidden_size": 32, "gamma": 0.99, "gae_lambda": 0.95, "clip_epsilon": 0.2, "value_coefficient": 0.5, "max_gradient_norm": 0.5},
+    "no_entropy": {"method": "ppo", "num_envs": 16, "num_steps": 64, "minibatches": 4, "epochs": 4, "learning_rate": 0.0003, "entropy_coefficient": 0.0, "hidden_size": 32, "gamma": 0.99, "gae_lambda": 0.95, "clip_epsilon": 0.2, "value_coefficient": 0.5, "max_gradient_norm": 0.5}
+  },
+  "comparisons": [
+    {"a": "base", "b": "lr_fast", "null_control": false},
+    {"a": "base", "b": "lr_slow", "null_control": false},
+    {"a": "base", "b": "fewer_epochs", "null_control": false},
+    {"a": "base", "b": "no_entropy", "null_control": false},
+    {"a": "base", "b": "base", "null_control": true}
+  ],
+  "phase_bases": {"development": 1200000000, "pilot": 1400000000, "confirmation": 1600000000},
+  "evaluation_reset_seeds": {
+    "CartPole-v1": [2000000000, 2000000001, 2000000002, 2000000003, 2000000004, 2000000005, 2000000006, 2000000007, 2000000008, 2000000009, 2000000010, 2000000011, 2000000012, 2000000013, 2000000014, 2000000015],
+    "Acrobot-v1": [2000001000, 2000001001, 2000001002, 2000001003, 2000001004, 2000001005, 2000001006, 2000001007, 2000001008, 2000001009, 2000001010, 2000001011, 2000001012, 2000001013, 2000001014, 2000001015]
+  },
+  "seed_formula": "phase_base + comparison_index*1000000 + repetition*10000 + arm*1000 + index; tasks and comparisons in listed order; arm0/1; index begins0",
+  "randomness": "Independent root keys and optimizer/training randomness per training seed. Sixteen deterministic evaluation episodes use one fixed task-specific reset set across policies and phases; all inference is conditional on that set.",
+  "timeouts": "Gymnax default terminal/truncated flags stop GAE bootstrap; no time-limit bootstrap. Fixed environment-step budgets, no qualification stopping or best-checkpoint selection.",
+  "summary": "Retain all attempts, report all executable different-variant cells and eligibility denominator, per-task and per-comparison detection rates with descriptive Wilson95 intervals; same-variant controls separate. Different variants are not known true alternatives.",
+  "source": "Adapted MIT control-clock JAX PPO at b090dad8a3b53f937782676c6033ba3557cedfa1, inspired by PureJaxRL Apache-2.0; gymnax0.0.9, JAX0.6.2, Flax0.10.6, Optax0.2.5."
+}

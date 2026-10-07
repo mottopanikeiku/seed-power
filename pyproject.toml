@@ -16,6 +16,14 @@ dependencies = [
   "modal==1.5.3",
 ]
 
+[project.optional-dependencies]
+neural = [
+  "jax==0.6.2",
+  "flax==0.10.6",
+  "optax==0.2.5",
+  "gymnax==0.0.9",
+]
+
 [dependency-groups]
 dev = ["pytest==8.4.1", "ruff==0.12.1"]
 
