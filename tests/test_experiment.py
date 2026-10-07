@@ -5,7 +5,9 @@ import numpy as np
 import pytest
 
 from seed_power.experiment import build_plans, comparison_cells, make_jobs, run_specs
-from scripts.analyze import confirmation_outcomes, load_records, summarize, validate_records
+from scripts.analyze import (
+    confirmation_outcomes, load_records, main as analysis_main, summarize, validate_records,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -73,6 +75,34 @@ def test_over_budget_is_not_truncated_or_called_a_planned_comparison():
     assert cell["status"] == "over_budget"
     assert cell["required_seeds_per_arm"] > 256
     assert list(run_specs(config, "confirmation", plans)) == []
+
+
+def test_analysis_cli_reports_an_empty_confirmation_when_every_plan_is_ineligible(
+    tmp_path, monkeypatch,
+):
+    config = small_design()
+    pilot = fixture_records(config, "pilot")
+    for record in pilot:
+        record.update(score=3.0, episode_returns=[3.0] * 16)
+    design_path, pilot_path = tmp_path / "design.json", tmp_path / "pilot.jsonl"
+    plan_path, fresh_path = tmp_path / "plan.json", tmp_path / "fresh.jsonl"
+    design_path.write_text(json.dumps(config))
+    pilot_path.write_text("".join(json.dumps(record) + "\n" for record in pilot))
+    fresh_path.write_text("")
+    shared = ["--design", str(design_path), "--pilot", str(pilot_path),
+              "--plan", str(plan_path), "--confirmation", str(fresh_path),
+              "--output", str(tmp_path)]
+    monkeypatch.setattr("sys.argv", ["analyze.py", "plan", *shared])
+    analysis_main()
+    monkeypatch.setattr("sys.argv", ["analyze.py", "confirmation", *shared])
+    analysis_main()
+    summary = json.loads((tmp_path / "summary.json").read_text())
+    assert summary["nonnull"]["plans"] == 0
+    assert summary["nonnull"]["detection_rate"] is None
+    assert summary["eligible_nonnull_fraction"] == 0
+    header = (tmp_path / "outcomes.csv").read_text().splitlines()
+    assert len(header) == 1
+    assert "pvalue" in header[0].split(",")
 
 
 def test_committed_confirmation_reproduces_the_reported_results():

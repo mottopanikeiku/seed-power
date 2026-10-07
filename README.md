@@ -25,7 +25,7 @@ I committed and pushed the complete [pilot plan](results/pilot_plan.json) at [`3
 
 [How pilot gaps transferred](figures/pilot_transfer.svg) · [Protocol and interpretation](docs/PROTOCOL.md)
 
-The planner treats noisy pilot gaps and variances as population values. Its two-sided noncentral-t calculation is exact for equal-variance Gaussian groups and approximate for Welch's unequal-variance test. These bounded, skewed RL returns need not satisfy either model. Some different-variant comparisons may have no true mean difference. The result is **detection frequency for this fixed design**, not power at a known effect or proof that all failures came from pilot noise.
+The planner treats noisy pilot gaps and variances as population values. Its equal-variance Gaussian calculation is pooled-t power; for the actual Welch test, holding degrees of freedom fixed is an approximation even when population variances match. These bounded, skewed RL returns need not satisfy the model. Some different-variant comparisons may have no true mean difference. The result is **detection frequency for this fixed design**, not power at a known effect or proof that all failures came from pilot noise.
 
 ## How many seeds?
 
