@@ -70,7 +70,13 @@ def make_comparisons(neural):
                   for group in groups]
         plot_groups(ax, groups, labels,
                     ["#8b8f97" if group["null_control"] else "#286a9b" for group in groups])
-        ax.axhline(neural["target_power"], color="#b34d30", linestyle="--")
+        ax.axhline(neural["target_power"], color="#b34d30", linestyle="--",
+                   label="80% observed-gap planning target")
+        for index, group in enumerate(groups):
+            if group["null_control"]:
+                ax.plot([index - .4, index + .4], [neural["alpha"]] * 2,
+                        color="#36774b", linewidth=2, label="5% null-control reference")
+        ax.legend(loc="upper left", fontsize=8)
         ax.set_title(task)
         ax.tick_params(axis="x", labelsize=8)
     axes[0].set_ylabel("Fresh-root-seed detection frequency")

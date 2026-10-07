@@ -154,9 +154,14 @@ def confirmation_outcomes(design, plans, records):
     return outcomes
 
 
+def convention_counts(rows):
+    return dict(Counter(row["degeneracy"] or "ordinary_welch" for row in rows))
+
+
 def summarize(design, plans, outcomes, records, plan_commit):
     result = legacy_summarize(design, plans, outcomes, records)
     result.update(
+        alpha=design["alpha"],
         plan_commit=plan_commit,
         interpretation=("Marginal detection frequency across executable fixed PPO variant "
                         "comparisons, conditional on the committed task-specific evaluation "
@@ -169,6 +174,19 @@ def summarize(design, plans, outcomes, records, plan_commit):
         evaluation_reset_seeds=design["evaluation_reset_seeds"],
         training_transitions_confirmation=sum(record["training_transitions"] for record in records),
     )
+    nonnull = [row for row in outcomes if not row["null_control"]]
+    nulls = [row for row in outcomes if row["null_control"]]
+    result["welch_conventions"] = {
+        "nonnull": convention_counts(nonnull),
+        "null_controls": convention_counts(nulls),
+        "definitions": {
+            "identical_constants": "No estimable t distribution; declared p=1 convention.",
+            "distinct_constants": "No estimable t distribution; declared p=0 limiting convention.",
+        },
+    }
+    result["nonnull_ordinary_welch"] = summary_group([
+        row for row in nonnull if row["degeneracy"] is None
+    ])
     groups = defaultdict(list)
     observed = defaultdict(list)
     for cell in plans["cells"]:
@@ -177,7 +195,8 @@ def summarize(design, plans, outcomes, records, plan_commit):
         observed[row["task"], row["a"], row["b"], row["null_control"]].append(row)
     result["per_comparison"] = [
         {"task": task, "a": a, "b": b, "null_control": null,
-         **summary_group(observed[key]), "attempted_plans": len(cells),
+         **summary_group(observed[key]), "welch_conventions": convention_counts(observed[key]),
+         "attempted_plans": len(cells),
          "status_counts": dict(Counter(cell["status"] for cell in cells))}
         for key, cells in sorted(groups.items())
         for task, a, b, null in [key]

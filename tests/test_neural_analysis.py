@@ -126,6 +126,27 @@ def test_exact_planned_counts_and_welch_outcomes_reuse_independent_root_seeds():
         analysis.confirmation_outcomes(design, plans, fresh[:-1])
 
 
+def test_constant_score_conventions_are_disclosed_and_not_called_ordinary_welch():
+    design = small_design()
+    plans = build_plans(design, fixture_records(design, "pilot"))
+    fresh = fixture_records(design, "confirmation", plans, constant=True)
+    for row in fresh:
+        if row["comparison_index"] == 0:
+            row["score"] = 0.0
+            row["episode_returns"] = [0.0] * 16
+    outcomes = analysis.confirmation_outcomes(design, plans, fresh)
+    result = analysis.summarize(design, plans, outcomes, fresh, "committed-plan")
+    assert result["welch_conventions"]["nonnull"] == {
+        "identical_constants": 1, "distinct_constants": 1,
+    }
+    assert result["welch_conventions"]["null_controls"] == {"distinct_constants": 2}
+    assert result["nonnull"]["detections"] == 1
+    assert result["nonnull_ordinary_welch"]["plans"] == 0
+    assert result["nonnull_ordinary_welch"]["detection_rate"] is None
+    assert all(sum(group["welch_conventions"].values()) == group["plans"]
+               for group in result["per_comparison"])
+
+
 @pytest.mark.parametrize("gap, constant, status", [
     (.01, False, "over_budget"), (0.0, False, "zero_effect"),
     (10.0, True, "zero_variance"),

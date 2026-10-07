@@ -50,6 +50,21 @@ def jobs_for(design, stage, plans=None):
         yield job
 
 
+def cache_identity(source_tree, image_id):
+    return {"source_tree": source_tree, "image_id": image_id, "gpu": "L4"}
+
+
+def cache_key(stage, design_sha, plan_sha, identity):
+    digest = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
+    return f"{stage}-{plan_sha or design_sha}-{digest}"
+
+
+def write_json_atomic(path, data):
+    temporary = path.with_suffix(path.suffix + ".partial")
+    temporary.write_text(json.dumps(data, indent=2, allow_nan=False) + "\n")
+    temporary.replace(path)
+
+
 def batch_name(index):
     return f"batch-{index:06}.json.gz"
 
@@ -78,7 +93,7 @@ def write_batch(path, result):
 
 @app.function(image=image, gpu="L4", cpu=2, memory=8192, timeout=TIMEOUT,
               max_containers=1, volumes={"/results": volume})
-def run_batches(indexed_jobs, batch_size, run_key):
+def run_batches(indexed_jobs, batch_size, run_key, identity, producer_commit):
     import importlib.metadata
     import platform
     import jax
@@ -99,7 +114,10 @@ def run_batches(indexed_jobs, batch_size, run_key):
         path = destination / batch_name(batch_index)
         if path.exists():
             with gzip.open(path, "rt", encoding="utf-8") as stream:
-                yield json.load(stream)
+                saved = json.load(stream)
+            if saved["training_identity"] != identity:
+                raise ValueError("saved GPU batch belongs to another training implementation")
+            yield saved
             continue
         seeds = [spec["seed"] for spec in job["specs"]]
         padding = batch_size - len(seeds)
@@ -113,7 +131,8 @@ def run_batches(indexed_jobs, batch_size, run_key):
                   "variant": job["variant"], "useful_seeds": len(seeds),
                   "padding_seeds": padding,
                   "seconds_including_first_compile": time.perf_counter() - started},
-                  "environment": environment}
+                  "environment": environment, "training_identity": identity,
+                  "producer_code_commit": producer_commit}
         write_batch(path, result)
         volume.commit()
         yield result
@@ -139,7 +158,13 @@ def collect_once(stage, output, design_path, plan_path, plan_commit):
         plans = json.loads(committed)
         plan_sha = hashlib.sha256(committed).hexdigest()
     design_sha = hashlib.sha256(design_bytes).hexdigest()
-    run_key = f"{stage}-{plan_sha or design_sha}"
+    training_commit = plan_commit if stage == "confirmation" else commit
+    subprocess.run(["git", "diff", "--quiet", training_commit, "--", "src/seed_power"], check=True)
+    source_tree = subprocess.check_output([
+        "git", "rev-parse", f"{training_commit}:src/seed_power",
+    ], text=True).strip()
+    identity = cache_identity(source_tree, image.object_id)
+    run_key = cache_key(stage, design_sha, plan_sha, identity)
     jobs = list(jobs_for(design, stage, plans))
     try:
         finished = completed_indices(volume.listdir(run_key), len(jobs))
@@ -158,7 +183,8 @@ def collect_once(stage, output, design_path, plan_path, plan_commit):
                 "hardware": "Modal NVIDIA L4", "cpu_cores_per_container": 2,
                 "memory_gib_per_container": 8, "max_containers": 1,
                 "timeout_seconds": TIMEOUT, "numerical_threads": 2,
-                "volume": VOLUME_NAME, "volume_directory": run_key, "batches": []}
+                "volume": VOLUME_NAME, "volume_directory": run_key,
+                "training_identity": identity, "batches": []}
     raw_path = destination / "runs.jsonl.gz"
     temporary = destination / "runs.jsonl.gz.partial"
     seen = set()
@@ -167,6 +193,8 @@ def collect_once(stage, output, design_path, plan_path, plan_commit):
             index = result["batch"]["index"]
             if index in seen:
                 raise ValueError("duplicate saved batch")
+            if result["training_identity"] != identity:
+                raise ValueError("saved batch training/runtime identity differs")
             if [record["seed"] for record in result["records"]] != [
                 spec["seed"] for spec in jobs[index]["specs"]
             ]:
@@ -175,16 +203,20 @@ def collect_once(stage, output, design_path, plan_path, plan_commit):
             for record in result["records"]:
                 stream.write(json.dumps(record, allow_nan=False) + "\n")
             stream.flush()
-            metadata["batches"].append(result["batch"])
+            metadata["batches"].append({
+                **result["batch"], "producer_code_commit": result["producer_code_commit"],
+            })
             metadata["environment"] = result["environment"]
-            metadata_path.write_text(json.dumps(metadata, indent=2, allow_nan=False) + "\n")
+            write_json_atomic(metadata_path, metadata)
 
         for index in sorted(finished):
             compressed = b"".join(volume.read_file(f"{run_key}/{batch_name(index)}"))
             save(json.loads(gzip.decompress(compressed)))
         print(f"Resuming {stage}: {len(finished)} saved, {len(missing)} missing batches", flush=True)
         if missing:
-            for result in run_batches.remote_gen(missing, design["batch_size"], run_key):
+            for result in run_batches.remote_gen(
+                missing, design["batch_size"], run_key, identity, commit,
+            ):
                 save(result)
                 print(f"{stage}: {len(seen)}/{len(jobs)} batches", flush=True)
     if len(seen) != len(jobs):
