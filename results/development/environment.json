@@ -1,0 +1,59 @@
+{
+  "stage": "development",
+  "code_commit": "7e1fb950c7d5007f428cc60696855368434adde3",
+  "plan_commit": null,
+  "plan_sha256": null,
+  "design_sha256": "9960f10aa9a12c2893b6a3e0f77b0662f712a5acac1e200aaa3a6e476781e372",
+  "hardware": "Modal CPU, no GPU",
+  "cpu_cores_per_container": 1,
+  "memory_gib_per_container": 1,
+  "max_containers": 8,
+  "timeout_seconds": 300,
+  "numerical_threads": 1,
+  "batches": [
+    {
+      "seconds": 0.5204098399999999,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 0.518501372,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.9166918359999998,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    },
+    {
+      "seconds": 1.919678721,
+      "cpu_model": "unknown",
+      "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+      "python": "3.12.10",
+      "libraries": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.3",
+        "gymnasium": "1.2.1"
+      }
+    }
+  ]
+}
