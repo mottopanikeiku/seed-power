@@ -1,0 +1,38 @@
+{
+  "source": "results/neural/development/environment.json",
+  "hardware": "Modal NVIDIA L4; not local timings",
+  "observed_warm_seconds_per_seed": {
+    "CartPole-v1": 0.003347025515624935,
+    "Acrobot-v1": 0.006817458484374983
+  },
+  "first_batch_seconds_upper_for_compile_budget": 26.202802909999996,
+  "configuration_groups": 10,
+  "cpu_cores": 2,
+  "memory_gib": 8,
+  "hourly_rate_usd": 0.957456,
+  "runtime_safety_multiplier": 1.5,
+  "cost_safety_multiplier": 1.1,
+  "candidate_worst_case_confirmation": [
+    {
+      "repetitions": 30,
+      "maximum_training_seeds": 307200,
+      "seconds_with_safety_margin": 2734.939157249981,
+      "estimated_upper_usd": 0.8001228600884255
+    },
+    {
+      "repetitions": 40,
+      "maximum_training_seeds": 409600,
+      "seconds_with_safety_margin": 3515.5715284499747,
+      "estimated_upper_usd": 1.028501544077211
+    },
+    {
+      "repetitions": 50,
+      "maximum_training_seeds": 512000,
+      "seconds_with_safety_margin": 4296.203899649969,
+      "estimated_upper_usd": 1.2568802280659963
+    }
+  ],
+  "selected_repetitions": 50,
+  "selection_uses_scores": false,
+  "note": "Worst-case executes all ten comparison/control cells at the full512-seed-per-arm cap. Warm timing has one repeat/task; margin is a planning heuristic, not a performance guarantee."
+}

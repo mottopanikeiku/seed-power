@@ -1,0 +1,67 @@
+{
+  "stage": "development",
+  "code_commit": "440d9975de95ce55007d36e6f5c5d3931e4910b9",
+  "plan_commit": null,
+  "plan_sha256": null,
+  "design_sha256": "bb7a5ed56a419bf6644c74541ac7085be484c4ea04691dc0a118aa3125d71759",
+  "hardware": "Modal NVIDIA L4",
+  "cpu_cores_per_container": 2,
+  "memory_gib_per_container": 8,
+  "max_containers": 1,
+  "timeout_seconds": 300,
+  "numerical_threads": 2,
+  "batches": [
+    {
+      "index": 0,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 23.266511207999997
+    },
+    {
+      "index": 1,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.21420963299999585
+    },
+    {
+      "index": 2,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 26.202802909999996
+    },
+    {
+      "index": 3,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4363173429999989
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+    "devices": [
+      "cuda:0"
+    ],
+    "device_kind": [
+      "NVIDIA L4"
+    ],
+    "libraries": {
+      "jax": "0.6.2",
+      "jaxlib": "0.6.2",
+      "flax": "0.10.6",
+      "optax": "0.2.5",
+      "gymnax": "0.0.9",
+      "gymnasium": "1.2.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3"
+    }
+  }
+}

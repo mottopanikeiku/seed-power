@@ -1,0 +1,12 @@
+{
+  "migrated_batches": 434,
+  "migrated_roots": 27690,
+  "legacy_directory": "confirmation-743a697458d9959eccb276d464275bdd534ac8134f0d16558b6ad27cd530c187",
+  "volume_directory": "confirmation-743a697458d9959eccb276d464275bdd534ac8134f0d16558b6ad27cd530c187-c835ca89d89dd13c91140305c1d22cd554251a240002c0645270f9aaf0dff521",
+  "training_identity": {
+    "source_tree": "23cd8f7b5b1bd5df4405f3b2e5224bb2d2ce51e3",
+    "image_id": "im-zwYdYPvP3kDDjtuK8sFO9Z",
+    "gpu": "L4"
+  },
+  "producer_code_commit": "277c08f1203c0b1468037edccfe363136b717e6e"
+}

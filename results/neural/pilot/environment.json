@@ -1,0 +1,1091 @@
+{
+  "stage": "pilot",
+  "code_commit": "bff2a4979d28844d2494b9ed0a044cb064f97bdd",
+  "plan_commit": null,
+  "plan_sha256": null,
+  "design_sha256": "e273435025232101eb26b92efd91cc5e2c4f2bef8b0ab7e9c0009115234bb511",
+  "hardware": "Modal NVIDIA L4",
+  "cpu_cores_per_container": 2,
+  "memory_gib_per_container": 8,
+  "max_containers": 1,
+  "timeout_seconds": 900,
+  "numerical_threads": 2,
+  "batches": [
+    {
+      "index": 0,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 14.396706608000002
+    },
+    {
+      "index": 1,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.2019565760000006
+    },
+    {
+      "index": 2,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19617786500000278
+    },
+    {
+      "index": 3,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19699795400000042
+    },
+    {
+      "index": 4,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19664791599999987
+    },
+    {
+      "index": 5,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19735166999999976
+    },
+    {
+      "index": 6,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19702108300000276
+    },
+    {
+      "index": 7,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19640174799999954
+    },
+    {
+      "index": 8,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19639521799999926
+    },
+    {
+      "index": 9,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19742846399999792
+    },
+    {
+      "index": 10,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19587188599999905
+    },
+    {
+      "index": 11,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19746264199999786
+    },
+    {
+      "index": 12,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19853440600000027
+    },
+    {
+      "index": 13,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19637401699999657
+    },
+    {
+      "index": 14,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19771861599999596
+    },
+    {
+      "index": 15,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1954267479999956
+    },
+    {
+      "index": 16,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1979935370000021
+    },
+    {
+      "index": 17,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19692109200000374
+    },
+    {
+      "index": 18,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19718727800000124
+    },
+    {
+      "index": 19,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.197307189
+    },
+    {
+      "index": 20,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1984926250000001
+    },
+    {
+      "index": 21,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19664321300000154
+    },
+    {
+      "index": 22,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19600429900000194
+    },
+    {
+      "index": 23,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1974874920000005
+    },
+    {
+      "index": 24,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19658823099999978
+    },
+    {
+      "index": 25,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1984127930000028
+    },
+    {
+      "index": 26,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1968718580000015
+    },
+    {
+      "index": 27,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1980289839999969
+    },
+    {
+      "index": 28,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1975972850000005
+    },
+    {
+      "index": 29,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19820514199999906
+    },
+    {
+      "index": 30,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19775728399999792
+    },
+    {
+      "index": 31,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19677674199999728
+    },
+    {
+      "index": 32,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19599183500000095
+    },
+    {
+      "index": 33,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19817953300000113
+    },
+    {
+      "index": 34,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.197799689
+    },
+    {
+      "index": 35,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1969653690000044
+    },
+    {
+      "index": 36,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19673832300000527
+    },
+    {
+      "index": 37,
+      "task": "CartPole-v1",
+      "variant": "base",
+      "useful_seeds": 32,
+      "padding_seeds": 32,
+      "seconds_including_first_compile": 0.1981758659999997
+    },
+    {
+      "index": 38,
+      "task": "CartPole-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 12.394302230000001
+    },
+    {
+      "index": 39,
+      "task": "CartPole-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1972276199999996
+    },
+    {
+      "index": 40,
+      "task": "CartPole-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19750440699999672
+    },
+    {
+      "index": 41,
+      "task": "CartPole-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1978613249999981
+    },
+    {
+      "index": 42,
+      "task": "CartPole-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19700613599999883
+    },
+    {
+      "index": 43,
+      "task": "CartPole-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1964229479999986
+    },
+    {
+      "index": 44,
+      "task": "CartPole-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.1973463079999931
+    },
+    {
+      "index": 45,
+      "task": "CartPole-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 12.776523764000004
+    },
+    {
+      "index": 46,
+      "task": "CartPole-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19633503100000382
+    },
+    {
+      "index": 47,
+      "task": "CartPole-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19750925800001085
+    },
+    {
+      "index": 48,
+      "task": "CartPole-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19732152400000302
+    },
+    {
+      "index": 49,
+      "task": "CartPole-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19617187800000124
+    },
+    {
+      "index": 50,
+      "task": "CartPole-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19639326300000448
+    },
+    {
+      "index": 51,
+      "task": "CartPole-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.19649228499999083
+    },
+    {
+      "index": 52,
+      "task": "CartPole-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 12.160925262000006
+    },
+    {
+      "index": 53,
+      "task": "CartPole-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.1580946700000112
+    },
+    {
+      "index": 54,
+      "task": "CartPole-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.15890823899999873
+    },
+    {
+      "index": 55,
+      "task": "CartPole-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.15805783199999723
+    },
+    {
+      "index": 56,
+      "task": "CartPole-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.15856337099999962
+    },
+    {
+      "index": 57,
+      "task": "CartPole-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.15836351699999796
+    },
+    {
+      "index": 58,
+      "task": "CartPole-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.1577254120000049
+    },
+    {
+      "index": 59,
+      "task": "CartPole-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 12.413462303000003
+    },
+    {
+      "index": 60,
+      "task": "CartPole-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19877982399999894
+    },
+    {
+      "index": 61,
+      "task": "CartPole-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19700122199999726
+    },
+    {
+      "index": 62,
+      "task": "CartPole-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19703037300000403
+    },
+    {
+      "index": 63,
+      "task": "CartPole-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19755156600000134
+    },
+    {
+      "index": 64,
+      "task": "CartPole-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.19744405299999812
+    },
+    {
+      "index": 65,
+      "task": "CartPole-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.1975477450000085
+    },
+    {
+      "index": 66,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 17.516536313000003
+    },
+    {
+      "index": 67,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42333188399999244
+    },
+    {
+      "index": 68,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42338981499999306
+    },
+    {
+      "index": 69,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42194834300001105
+    },
+    {
+      "index": 70,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42336299100000474
+    },
+    {
+      "index": 71,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4237225889999934
+    },
+    {
+      "index": 72,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.424105419
+    },
+    {
+      "index": 73,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4221263769999979
+    },
+    {
+      "index": 74,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42382300999999245
+    },
+    {
+      "index": 75,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4231692439999932
+    },
+    {
+      "index": 76,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42313287300000013
+    },
+    {
+      "index": 77,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42352008000000296
+    },
+    {
+      "index": 78,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4221539690000071
+    },
+    {
+      "index": 79,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.423228488999996
+    },
+    {
+      "index": 80,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42356498300000567
+    },
+    {
+      "index": 81,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42274809199999197
+    },
+    {
+      "index": 82,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42368195699999944
+    },
+    {
+      "index": 83,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42253891199999316
+    },
+    {
+      "index": 84,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4234312640000013
+    },
+    {
+      "index": 85,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42266322700000103
+    },
+    {
+      "index": 86,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42240040500000475
+    },
+    {
+      "index": 87,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42331017800000836
+    },
+    {
+      "index": 88,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4221933930000006
+    },
+    {
+      "index": 89,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42304079400000205
+    },
+    {
+      "index": 90,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42247396099999435
+    },
+    {
+      "index": 91,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42214329299999065
+    },
+    {
+      "index": 92,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4229331299999899
+    },
+    {
+      "index": 93,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42248263700000166
+    },
+    {
+      "index": 94,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4232666660000035
+    },
+    {
+      "index": 95,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4244666749999908
+    },
+    {
+      "index": 96,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4230399810000023
+    },
+    {
+      "index": 97,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4219857169999983
+    },
+    {
+      "index": 98,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42281688900000347
+    },
+    {
+      "index": 99,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42207292200001234
+    },
+    {
+      "index": 100,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4239769349999989
+    },
+    {
+      "index": 101,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4219358520000043
+    },
+    {
+      "index": 102,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42399596299999587
+    },
+    {
+      "index": 103,
+      "task": "Acrobot-v1",
+      "variant": "base",
+      "useful_seeds": 32,
+      "padding_seeds": 32,
+      "seconds_including_first_compile": 0.42233606100001
+    },
+    {
+      "index": 104,
+      "task": "Acrobot-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 16.438900920999984
+    },
+    {
+      "index": 105,
+      "task": "Acrobot-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42321556400000304
+    },
+    {
+      "index": 106,
+      "task": "Acrobot-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4241033940000136
+    },
+    {
+      "index": 107,
+      "task": "Acrobot-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4230155449999984
+    },
+    {
+      "index": 108,
+      "task": "Acrobot-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4228962910000007
+    },
+    {
+      "index": 109,
+      "task": "Acrobot-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4233886499999926
+    },
+    {
+      "index": 110,
+      "task": "Acrobot-v1",
+      "variant": "lr_fast",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.42263985099998536
+    },
+    {
+      "index": 111,
+      "task": "Acrobot-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 16.973137248
+    },
+    {
+      "index": 112,
+      "task": "Acrobot-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.422419012000006
+    },
+    {
+      "index": 113,
+      "task": "Acrobot-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4223079719999987
+    },
+    {
+      "index": 114,
+      "task": "Acrobot-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4224566450000111
+    },
+    {
+      "index": 115,
+      "task": "Acrobot-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4222734400000263
+    },
+    {
+      "index": 116,
+      "task": "Acrobot-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42237675800001284
+    },
+    {
+      "index": 117,
+      "task": "Acrobot-v1",
+      "variant": "lr_slow",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.42311671199999523
+    },
+    {
+      "index": 118,
+      "task": "Acrobot-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 16.407978930000013
+    },
+    {
+      "index": 119,
+      "task": "Acrobot-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.34464617500000827
+    },
+    {
+      "index": 120,
+      "task": "Acrobot-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.3447690899999998
+    },
+    {
+      "index": 121,
+      "task": "Acrobot-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.3451155829999948
+    },
+    {
+      "index": 122,
+      "task": "Acrobot-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.3456309550000185
+    },
+    {
+      "index": 123,
+      "task": "Acrobot-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.3445175479999989
+    },
+    {
+      "index": 124,
+      "task": "Acrobot-v1",
+      "variant": "fewer_epochs",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.34538408700001355
+    },
+    {
+      "index": 125,
+      "task": "Acrobot-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 16.91136299300001
+    },
+    {
+      "index": 126,
+      "task": "Acrobot-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42048697699999593
+    },
+    {
+      "index": 127,
+      "task": "Acrobot-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4217809339999974
+    },
+    {
+      "index": 128,
+      "task": "Acrobot-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4213327829999969
+    },
+    {
+      "index": 129,
+      "task": "Acrobot-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.42197942999999327
+    },
+    {
+      "index": 130,
+      "task": "Acrobot-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 64,
+      "padding_seeds": 0,
+      "seconds_including_first_compile": 0.4205224620000081
+    },
+    {
+      "index": 131,
+      "task": "Acrobot-v1",
+      "variant": "no_entropy",
+      "useful_seeds": 16,
+      "padding_seeds": 48,
+      "seconds_including_first_compile": 0.42207415900000456
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+    "devices": [
+      "cuda:0"
+    ],
+    "device_kind": [
+      "NVIDIA L4"
+    ],
+    "libraries": {
+      "jax": "0.6.2",
+      "jaxlib": "0.6.2",
+      "flax": "0.10.6",
+      "optax": "0.2.5",
+      "gymnax": "0.0.9",
+      "gymnasium": "1.2.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3"
+    }
+  }
+}
