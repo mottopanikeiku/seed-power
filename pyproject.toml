@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seed-power"
+version = "0.1.0"
+description = "Prospective calibration of pilot-based seed budgets in reinforcement learning"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = [
+  "numpy==2.2.6",
+  "scipy==1.15.3",
+  "gymnasium==1.2.1",
+  "matplotlib==3.10.3",
+  "modal==1.5.3",
+]
+
+[dependency-groups]
+dev = ["pytest==8.4.1", "ruff==0.12.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

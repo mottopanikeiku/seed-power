@@ -1,0 +1,37 @@
+{
+  "question": "Does an observed-gap pilot plan deliver 80% detection on fresh independent RL training seeds?",
+  "pilot_seeds_per_arm": 8,
+  "repetitions_per_comparison": 12,
+  "target_power": 0.8,
+  "alpha": 0.05,
+  "maximum_executable_seeds_per_arm": 256,
+  "evaluation_episodes_per_training_seed": 16,
+  "population": 32,
+  "planning": "Two-sided noncentral-t power with plug-in pilot means/variances and approximate Welch degrees of freedom; smallest equal n per arm.",
+  "confirmation": "Independent two-sided Welch t test, p < 0.05; report opposite-sign detections too. No multiplicity correction: the outcome is marginal detection frequency, not a claim that individual algorithms differ.",
+  "ineligible": "Zero pilot effect, zero total pilot variance, or required n above 256: retain the complete pilot and required count, do not cap a count while calling it an 80% plan, and do not include it in achieved-detection denominator.",
+  "selection": "All listed task/comparison/repetition cells are retained. Hyperparameters and comparisons do not change after development or pilot outcomes.",
+  "tasks": ["CartPole-v1", "Acrobot-v1"],
+  "variants": {
+    "ars2": {"method": "ars", "iterations": 2},
+    "ars4": {"method": "ars", "iterations": 4},
+    "ars8": {"method": "ars", "iterations": 8},
+    "cem2": {"method": "cem", "iterations": 2},
+    "cem4": {"method": "cem", "iterations": 4},
+    "cem8": {"method": "cem", "iterations": 8}
+  },
+  "comparisons": [
+    {"a": "ars2", "b": "ars4", "null_control": false},
+    {"a": "ars4", "b": "ars8", "null_control": false},
+    {"a": "cem2", "b": "cem4", "null_control": false},
+    {"a": "cem4", "b": "cem8", "null_control": false},
+    {"a": "ars4", "b": "cem4", "null_control": false},
+    {"a": "ars8", "b": "cem8", "null_control": false},
+    {"a": "cem4", "b": "cem4", "null_control": true}
+  ],
+  "seed_formula": "phase_base + comparison_index*1000000 + repetition*10000 + arm*1000 + index; comparison_index numbers both tasks in listed order, arm=0/1, index begins at 0",
+  "phase_bases": {"development": 900000000, "pilot": 100000, "confirmation": 100000000},
+  "randomness": "Each root training seed spawns three NumPy SeedSequence streams: optimizer, training reset, evaluation reset. Training resets are shared only within that seed's candidate population. No training seed is reused across cells or phases.",
+  "batch_size": 32,
+  "summary": "All eligible non-null cells pooled and per-task/per-comparison detection rates with Wilson 95% intervals; null controls separate. Report eligible fraction, seed-budget median/IQR and sign-reversal counts. This is calibration for this fixed set of comparisons, not a population estimate across RL algorithms."
+}
