@@ -44,7 +44,11 @@ def test_power_matches_direct_scipy_reference(effect, variance_a, variance_b, n,
     )
 
 
-@pytest.mark.parametrize("effect,variance_a,variance_b,n", [(0.7, 1.0, 1.0, 9), (1.2, 0.5, 5.0, 13)])
+@pytest.mark.parametrize(
+    "effect,variance_a,variance_b,n",
+    [(0.7, 1.0, 1.0, 9), (1.2, 0.5, 5.0, 13),
+     (365.203125, 5446.826729910715, 538.2857142857143, 4)],
+)
 def test_power_matches_normal_chi_square_integral(effect, variance_a, variance_b, n):
     # A noncentral t is (Z + noncentrality) / sqrt(V/df), with independent
     # standard normal Z and chi-square V. Integrate those primitives directly;

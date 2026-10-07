@@ -1,0 +1,5 @@
+claim_type,standardized_mean_effect,variance_a,variance_b,alpha,target,seeds_per_arm,total_training_runs,power_at_n,power_at_n_minus_one
+plugin_model,0.2,1.0,1.0,0.05,0.8,394,788,0.8005931284024354,0.7995942411619148
+plugin_model,0.5,1.0,1.0,0.05,0.8,64,128,0.8014595579287099,0.7951683381304625
+plugin_model,0.8,1.0,1.0,0.05,0.8,26,52,0.8074866151465275,0.7914512899851558
+plugin_model,1.0,1.0,1.0,0.05,0.8,17,34,0.8070367151472201,0.7813977924664224
