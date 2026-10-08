@@ -4,7 +4,12 @@ permissions:
   contents: read
 jobs:
   correctness:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # arm64 catches last-bit SciPy differences that exact plan checks once missed.
+        os: [ubuntu-latest, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
