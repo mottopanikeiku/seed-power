@@ -2,7 +2,7 @@
 
 ## Recompute committed results
 
-These commands use the committed per-training-seed scores. They do not train policies or spend cloud compute.
+These commands use the committed per-training-seed scores. They do not train policies or spend cloud compute. Each analyzer rebuilds the pilot plan and requires identical counts, statuses and hashes; floats such as modeled power may differ in their last bits across CPU architectures, and outputs keep the committed values. Regenerated PNGs and the last digits of `results/public*` can still differ across machines.
 
 ```sh
 uv sync --locked --python 3.12
