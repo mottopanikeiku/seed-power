@@ -124,6 +124,11 @@ def test_analysis_cli_reports_an_empty_confirmation_when_every_plan_is_ineligibl
     header = (tmp_path / "outcomes.csv").read_text().splitlines()
     assert len(header) == 1
     assert "pvalue" in header[0].split(",")
+    plan = json.loads(plan_path.read_text())
+    plan["cells"][0]["status"] = "over_budget"
+    plan_path.write_text(json.dumps(plan))
+    with pytest.raises(ValueError, match="does not reproduce"):
+        analysis_main()
 
 
 def test_committed_confirmation_reproduces_the_reported_results():
