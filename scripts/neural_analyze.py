@@ -18,7 +18,7 @@ from pathlib import Path
 
 import numpy as np
 
-from seed_power.experiment import build_plans, run_specs
+from seed_power.experiment import build_plans, plans_match, run_specs
 
 if __package__:
     from .analyze import (
@@ -227,8 +227,10 @@ def main():
         print(json.dumps(Counter(cell["status"] for cell in plans["cells"])))
         return
     plan_commit = plan_provenance(args.design, args.plan, args.confirmation, args.plan_commit)
-    if plans != json.loads(Path(args.plan).read_text()):
+    committed = json.loads(Path(args.plan).read_text())
+    if not plans_match(plans, committed):
         raise ValueError("committed plan does not reproduce from pilot scores and design")
+    plans = committed  # Report the committed floats, not this platform's last bits.
     records = load_records(args.confirmation)
     if {row["seed"] for row in records} & {row["seed"] for row in pilot}:
         raise ValueError("pilot and confirmation training seeds overlap")

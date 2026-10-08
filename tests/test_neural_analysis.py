@@ -8,7 +8,7 @@ import json
 import pytest
 
 from scripts import neural_analyze as analysis
-from seed_power.experiment import build_plans, run_specs
+from seed_power.experiment import build_plans, plans_match, run_specs
 from seed_power.stats import welch_test
 
 
@@ -276,7 +276,7 @@ def test_committed_neural_roots_reproduce_counts_outcomes_and_summary():
     rebuilt = build_plans(design, pilot)
     rebuilt["pilot_sha256"] = hashlib.sha256(pilot_path.read_bytes()).hexdigest()
     rebuilt["design_sha256"] = hashlib.sha256(design_path.read_bytes()).hexdigest()
-    assert rebuilt == plans
+    assert plans_match(rebuilt, plans)
     plan_commit = analysis.plan_provenance(design_path, plan_path, fresh_path)
     outcomes = analysis.confirmation_outcomes(design, plans, fresh)
     result = analysis.summarize(design, plans, outcomes, fresh, plan_commit)
