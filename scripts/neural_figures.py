@@ -95,10 +95,11 @@ def main():
     neural = json.loads(Path(args.neural).read_text())
     destination = Path(args.output)
     destination.mkdir(parents=True, exist_ok=True)
-    plt.rcParams.update({"font.size": 10, "svg.fonttype": "none"})
+    # A fixed hash salt and no date keep regenerated SVGs byte-stable.
+    plt.rcParams.update({"font.size": 10, "svg.fonttype": "none", "svg.hashsalt": "seed-power"})
     for filename, fig in [("neural_vs_linear.svg", make_overview(legacy, neural)),
                           ("neural_comparisons.svg", make_comparisons(neural))]:
-        fig.savefig(destination / filename)
+        fig.savefig(destination / filename, metadata={"Date": None})
         fig.savefig((destination / filename).with_suffix(".png"), dpi=160)
         plt.close(fig)
 

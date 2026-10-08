@@ -14,7 +14,8 @@ def main():
         rows = list(csv.DictReader(stream))
     destination = Path("figures")
     destination.mkdir(exist_ok=True)
-    plt.rcParams.update({"font.size": 10, "svg.fonttype": "none"})
+    # A fixed hash salt and no date keep regenerated SVGs byte-stable.
+    plt.rcParams.update({"font.size": 10, "svg.fonttype": "none", "svg.hashsalt": "seed-power"})
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.4), sharey=True, constrained_layout=True)
     for ax, task in zip(axes, ("CartPole-v1", "Acrobot-v1"), strict=True):
         groups = [row for row in summary["per_comparison"]
@@ -34,7 +35,7 @@ def main():
     axes[0].set_ylabel("Fresh-seed detection frequency (Wilson 95% interval)")
     axes[1].legend(loc="lower right")
     fig.suptitle("An 80% pilot calculation is not an 80% detection guarantee")
-    fig.savefig(destination / "calibration.svg")
+    fig.savefig(destination / "calibration.svg", metadata={"Date": None})
     plt.close(fig)
     fig, axes = plt.subplots(1, 2, figsize=(10, 4), constrained_layout=True)
     for ax, task in zip(axes, ("CartPole-v1", "Acrobot-v1"), strict=True):
@@ -51,7 +52,7 @@ def main():
         ax.grid(alpha=.15)
         ax.legend()
     fig.suptitle("Pilot gaps and independent confirmation gaps (raw return points)")
-    fig.savefig(destination / "pilot_transfer.svg")
+    fig.savefig(destination / "pilot_transfer.svg", metadata={"Date": None})
     plt.close(fig)
 
 
