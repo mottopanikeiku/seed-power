@@ -11,7 +11,7 @@ from pathlib import Path
 
 import numpy as np
 
-from seed_power.experiment import build_plans, run_specs
+from seed_power.experiment import build_plans, plans_match, run_specs
 from seed_power.stats import welch_test, wilson_interval
 
 OUTCOME_FIELDS = [
@@ -131,8 +131,10 @@ def main():
         Path(args.plan).write_text(json.dumps(plans, indent=2, allow_nan=False) + "\n")
         print(json.dumps(Counter(cell["status"] for cell in plans["cells"])))
         return
-    if plans != json.loads(Path(args.plan).read_text()):
+    committed = json.loads(Path(args.plan).read_text())
+    if not plans_match(plans, committed):
         raise ValueError("committed plan does not reproduce from pilot scores")
+    plans = committed  # Report the committed floats, not this platform's last bits.
     records = load_records(args.confirmation)
     if {row["seed"] for row in records} & {row["seed"] for row in pilot}:
         raise ValueError("pilot and confirmation training seeds overlap")

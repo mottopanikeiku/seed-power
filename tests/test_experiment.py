@@ -4,7 +4,9 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from seed_power.experiment import build_plans, comparison_cells, make_jobs, run_specs
+from seed_power.experiment import (
+    build_plans, comparison_cells, make_jobs, plans_match, run_specs,
+)
 from scripts.analyze import (
     confirmation_outcomes, load_records, main as analysis_main, summarize, validate_records,
 )
@@ -77,6 +79,25 @@ def test_over_budget_is_not_truncated_or_called_a_planned_comparison():
     assert list(run_specs(config, "confirmation", plans)) == []
 
 
+def test_plan_reproduction_tolerates_only_last_bit_float_differences():
+    config = small_design()
+    plans = build_plans(config, fixture_records(config, "pilot"))
+    committed = json.loads(json.dumps(plans))
+    cell = committed["cells"][0]
+    assert plans_match(plans, committed)
+    cell["modeled_power"] = float(np.nextafter(cell["modeled_power"], 1.0))
+    assert plans_match(plans, committed)
+    for key, value in [("modeled_power", cell["modeled_power"] * (1 + 1e-6)),
+                       ("required_seeds_per_arm", cell["required_seeds_per_arm"] + 1),
+                       ("required_seeds_per_arm", float(cell["required_seeds_per_arm"])),
+                       ("status", "over_budget")]:
+        changed = json.loads(json.dumps(committed))
+        changed["cells"][0][key] = value
+        assert not plans_match(plans, changed)
+    assert not plans_match(plans, {**committed, "cells": committed["cells"][1:]})
+    assert not plans_match(plans, {**committed, "extra": 1})
+
+
 def test_analysis_cli_reports_an_empty_confirmation_when_every_plan_is_ineligible(
     tmp_path, monkeypatch,
 ):
@@ -103,6 +124,11 @@ def test_analysis_cli_reports_an_empty_confirmation_when_every_plan_is_ineligibl
     header = (tmp_path / "outcomes.csv").read_text().splitlines()
     assert len(header) == 1
     assert "pvalue" in header[0].split(",")
+    plan = json.loads(plan_path.read_text())
+    plan["cells"][0]["status"] = "over_budget"
+    plan_path.write_text(json.dumps(plan))
+    with pytest.raises(ValueError, match="does not reproduce"):
+        analysis_main()
 
 
 def test_committed_confirmation_reproduces_the_reported_results():
@@ -113,7 +139,7 @@ def test_committed_confirmation_reproduces_the_reported_results():
     fresh = load_records(ROOT / "results/confirmation/runs.jsonl")
     validate_records(config, "pilot", pilot)
     rebuilt = build_plans(config, pilot)
-    assert rebuilt["cells"] == plans["cells"]
+    assert plans_match(rebuilt["cells"], plans["cells"])
     outcomes = confirmation_outcomes(config, plans, fresh)
     result = summarize(config, plans, outcomes, fresh)
     assert result == json.loads((ROOT / "results/summary.json").read_text())

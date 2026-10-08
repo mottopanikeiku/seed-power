@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+import math
 
 import numpy as np
 
@@ -101,3 +102,24 @@ def build_plans(design, pilot_records):
                                         if required is not None else None)})
     return {"target_power": design["target_power"], "alpha": design["alpha"],
             "pilot_seeds_per_arm": design["pilot_seeds_per_arm"], "cells": cells}
+
+
+def plans_match(rebuilt, committed, rel_tol=1e-9):
+    """Return whether a rebuilt plan reproduces a committed one.
+
+    Counts, statuses, coordinates and hashes must match exactly. Floats such
+    as ``modeled_power`` may differ in their last bits because SciPy's
+    noncentral-t tails are not bitwise identical across CPU architectures, so
+    floats are compared with a tight relative tolerance instead of ``==``.
+    """
+    if type(rebuilt) is not type(committed):
+        return False
+    if isinstance(rebuilt, float):
+        return math.isclose(rebuilt, committed, rel_tol=rel_tol, abs_tol=0.0)
+    if isinstance(rebuilt, dict):
+        return rebuilt.keys() == committed.keys() and all(
+            plans_match(rebuilt[key], committed[key], rel_tol) for key in rebuilt)
+    if isinstance(rebuilt, list):
+        return len(rebuilt) == len(committed) and all(
+            plans_match(a, b, rel_tol) for a, b in zip(rebuilt, committed))
+    return rebuilt == committed
